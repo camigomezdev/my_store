@@ -15,6 +15,7 @@ pip install -r requirements.txt
 
 make migrate
 make run
+make tests
 ```
 
 Para crear un super usuario y acceder al admin:
@@ -53,3 +54,23 @@ docs: https://docs.djangoproject.com/en/4.2/ref/databases/#mysql-notes
 ## Diagrama de la base de datos:
 
 ![Diagrama base de datos](docs/db.png)
+
+
+## Testing:
+
+Para ejecutar los test unitarios de todo el proyecto:
+
+```
+make tests
+```
+
+Si queremos ejecutar con nivel de detalle los test de una app en particular:
+
+```
+python manage.py test products.tests.test_views --settings=settings.local -v  2
+```
+usando make
+
+```
+make test-one TEST_NAME=products.tests.test_views
+```
